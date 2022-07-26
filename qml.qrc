@@ -7,5 +7,6 @@
         <file>PitchBoard.qml</file>
         <file>ICO_car_side.qml</file>
         <file>InclinometrBoard.qml</file>
+        <file>ICO_antena.qml</file>
     </qresource>
 </RCC>

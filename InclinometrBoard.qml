@@ -8,9 +8,11 @@ Item {
         property alias ypos: id_inclin.y
         property color colorLight_1: "#ff0080aa"
         property color colorLight_2: "transparent"
+        property color colorIcoLight: "#ff00ff00"
         property int curAngInc: 0
         property int curAngKren: 0
         property var arr:  [-20,-10,0,10,20]
+        property bool ico_light: false
 
         Rectangle{
             property int numberIndexs_S1: 40
@@ -313,6 +315,15 @@ Item {
                         anchors.top: parent.top
                     }
                 }
+            }
+
+            ICO_antena{
+                id: id_ico_obj
+                anchors.centerIn: parent
+                height: parent.height*0.75
+                width: height
+                flag_light: ico_light
+                iColorLight: colorIcoLight
             }
 
 //            Text{

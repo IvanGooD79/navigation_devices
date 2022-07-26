@@ -44,15 +44,19 @@ id: win
         id: id_bank_obj
         height: Math.min(parent.width,parent.height)*0.40
         width: height
+        ico_light: true
+        colorIcoLight: curAng != 0 ? "#ffffff00" : "#ff00ffff"
         x: 30
         y: 30
-        curAng: 10
+        curAng: 5
     }
 
     PitchBoard{
         id: id_pitch_obj
         height: Math.min(parent.width,parent.height)*0.40
         width: height
+        ico_light: true
+        colorIcoLight: curAng != 0 ? "#ffffff00" : "#ff00ffff"
         anchors.left: id_bank_obj.right
         anchors.top: id_bank_obj.top
         anchors.leftMargin: width*0.2
@@ -82,11 +86,13 @@ id: win
         id: id_inc_obj
         height: Math.min(parent.width,parent.height)*0.40
         width: height
-        curAngKren: 3
-        curAngInc: 20
+        curAngKren: 0
+        curAngInc: 25
         anchors.left: id_bank_obj.left
         anchors.top: id_bank_obj.bottom
         anchors.topMargin: 20
+        ico_light: true
+        colorIcoLight: curAngKren != 0 ? "#ffffff00" : "#ff00ffff"
     }
 
 
@@ -107,6 +113,16 @@ id: win
 
         anchors.left: id_ico_front_obj.right
         anchors.top: id_ico_front_obj.top
+        DragHandler{}
+    }
+
+    ICO_antena{
+        id: id_ico_antena_obj
+        height: Math.min(parent.width,parent.height)*0.40
+        width: height
+
+        anchors.left: id_ico_side_obj.right
+        anchors.top:  id_ico_side_obj.top
         DragHandler{}
     }
 

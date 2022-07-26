@@ -8,8 +8,8 @@ Item {
     property alias size: ico_.width
     property color iColor: "#ff00ffff"
     property color iColorCenter: "black"
-    property color iColorPaint: "#ff00ff00"
-    property int cBladeFan: 4
+    property color iColorLight: "#ff00ff00"
+    property bool flag_light: false
 
     Rectangle{
         id:ico_
@@ -52,10 +52,12 @@ Item {
 
 
                         // shadow effect
-//                        ctx.shadowColor = iColorPaint;
-//                        ctx.shadowOffsetX = 3;
-//                        ctx.shadowOffsetY = 2;
-//                        ctx.shadowBlur = 4;
+                        if (flag_light){
+                            ctx.shadowColor = iColorLight;
+                            ctx.shadowOffsetX = 2;
+                            ctx.shadowOffsetY = 1;
+                            ctx.shadowBlur = 4;
+                        }
 
                         ctx.beginPath()
                         ctx.strokeStyle = "silver"

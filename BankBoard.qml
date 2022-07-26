@@ -8,8 +8,10 @@ Item {
         property alias ypos: id_bank.y
         property color colorLight_1: "#ff0080aa"
         property color colorLight_2: "transparent"
+        property color colorIcoLight: "#ff00ff00"
         property int curAng: 0
         property var arr:  [-20,-10,0,10,20]
+        property bool ico_light: false
 
         Rectangle{
             property int numberIndexs_S: 40
@@ -223,6 +225,8 @@ Item {
                     anchors.centerIn: id_deviation
                     height: id_deviation.height*0.65
                     width: height
+                    flag_light: ico_light
+                    iColorLight: colorIcoLight
                 }
             }
 
