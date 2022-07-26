@@ -1,0 +1,17 @@
+debug/
+release/
+exm/
+Makefile
+
+*.bat
+*.Debug
+*.Release
+*.stash
+*.user
+*.ts
+*.o
+*.log
+*.autosave
+
+
+

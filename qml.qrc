@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>CompasBoard.qml</file>
+        <file>_Dashboard.qml</file>
+        <file>BankBoard.qml</file>
+        <file>ICO_car_front.qml</file>
+        <file>PitchBoard.qml</file>
+        <file>ICO_car_side.qml</file>
+        <file>InclinometrBoard.qml</file>
+    </qresource>
+</RCC>
