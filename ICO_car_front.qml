@@ -164,12 +164,9 @@ Item {
                         ctx.lineTo(centreX+wid*0.20,Top+hei*1.05)
                         ctx.lineTo(centreX-wid*0.20,Top+hei*1.05)
 
-
                         ctx.stroke()
                     }
             }
-
         }
-
     }
 }

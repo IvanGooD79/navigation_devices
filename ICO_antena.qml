@@ -44,8 +44,9 @@ Item {
                     onPaint: {
                         var ctx = getContext("2d");
                         ctx.reset();
-                        var centreX = width / 2;
-                        var centreY = height / 2;
+                        var left  = 10
+                        var centreX = width / 2 + left
+                        var centreY = height / 2
                         var Top = height*0.25
                         var wid = width*0.75
                         var hei = wid*0.88
@@ -94,17 +95,9 @@ Item {
                         ctx.lineTo(centreX+wid*0.20,Top+hei*0.8)
                         ctx.lineTo(centreX-wid*0.20,Top+hei*0.8)
 
-
-//                        ctx.moveTo(centreX-wid*0.45,Top)
-//                        ctx.bezierCurveTo(centreX-wid*0.45,Top,centreX-wid*0.50,Top+hei*0.05, centreX-wid*0.50,Top+hei*0.1)
-//                        ctx.moveTo(centreX-wid*0.50,Top+hei*0.1)
-//                        ctx.bezierCurveTo(centreX-wid*0.50,Top+wid*0.1,centreX-wid*0.55,Top+hei*0.40, centreX-wid*0.50,Top+hei*0.8)
-
                         ctx.stroke()
                     }
             }
-
         }
-
     }
 }

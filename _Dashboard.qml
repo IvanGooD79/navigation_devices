@@ -86,8 +86,8 @@ id: win
         id: id_inc_obj
         height: Math.min(parent.width,parent.height)*0.40
         width: height
-        curAngKren: 0
-        curAngInc: 25
+        curAngKren: -5
+        curAngInc: 20
         anchors.left: id_bank_obj.left
         anchors.top: id_bank_obj.bottom
         anchors.topMargin: 20

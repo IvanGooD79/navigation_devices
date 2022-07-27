@@ -166,7 +166,6 @@ Item {
                             }
                         }
                 }
-
             }
 
             // центральный блок
@@ -259,7 +258,6 @@ Item {
                     easing.type: Easing.InOutBounce
                 }
             }
-
         }
 
 

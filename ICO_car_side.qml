@@ -166,8 +166,6 @@ Item {
                         ctx.stroke()
                     }
             }
-
         }
-
     }
 }

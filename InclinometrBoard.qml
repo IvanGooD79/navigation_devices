@@ -220,7 +220,7 @@ Item {
                     height: parent.height*0.7
                     width:  height
                     radius: width/2
-                    color: "transparent"
+                    color: "black"
 //                    border.color: colorLight_1
 //                    border.width: width*0.018
                     Canvas {
@@ -233,8 +233,9 @@ Item {
                               ctx.beginPath();
                               ctx.strokeStyle = colorLight_1
                               ctx.shadowColor = Qt.hsla(0.6, 0.5, 0.5, 1)
-                              ctx.shadowBlur = 4;
+                              ctx.shadowBlur = 3;
                               ctx.shadowOffsetX = -4;
+
                               ctx.lineWidth = width*0.02
                               ctx.beginPath()
                               ctx.arc(centreX-width*0.02, centreY, height/2, Math.PI/4, 7*Math.PI/4, true);
@@ -277,7 +278,7 @@ Item {
                     height: parent.height*0.7
                     width:  height
                     radius: width/2
-                    color: "black"
+                    color: "transparent"
 //                    border.color: colorLight_1
 //                    border.width: width*0.018
                     Canvas {
@@ -326,35 +327,72 @@ Item {
                 iColorLight: colorIcoLight
             }
 
-//            Text{
-//                id: bank_text
-//                font.pixelSize: parent.width*0.06
-//                color: curAng != 0 ? "gold" : "lightgreen"
-//                text:  if (curAng > 0) "крен вправо " +curAng; else if (curAng < 0)  "крен влево " +curAng*(-1); else "норма"
-//                antialiasing: true
-//                anchors.horizontalCenter: parent.horizontalCenter
-//                anchors.top: id_deviation.bottom
-//                anchors.topMargin: -height
-//            }
-//            DropShadow {
-//                source: bank_text
-//                anchors.fill: bank_text
-//                color: "silver"
-//                opacity: 1
-//                radius: 10
-//                horizontalOffset: 4
-//                verticalOffset: 6
-//                samples: 15
-//                NumberAnimation on opacity {
-//                    easing.amplitude: 8
-//                    from: 1
-//                    to: 0.8
-//                    duration: 1000
-//                    loops: Animation.Infinite
-//                    running: true
-//                    easing.type: Easing.InOutBounce
-//                }
-//            }
+
+            Text{
+                id: kren_text
+                font.pixelSize: parent.width*0.06
+                color: curAngKren != 0 ? "gold" : "lightgreen"
+                text:  "крен \nантенны"
+                antialiasing: true
+                anchors.left: id_deviation_2.left
+                anchors.leftMargin: width*0.5
+                anchors.top: id_deviation_2.bottom
+                anchors.topMargin: -10
+            }
+
+            Text{
+                id: kren_data
+                font.pixelSize: parent.width*0.06
+                color: curAngKren != 0 ? "gold" : "lightgreen"
+                text:  if (curAngKren > 0) "крен вправо " +curAngKren; else if (curAngKren < 0)  "крен влево " +curAngKren*(-1); else "норма"
+                antialiasing: true
+                anchors.left: kren_text.left
+                anchors.top: kren_text.bottom
+                anchors.topMargin: height*0.1
+            }
+
+            Text{
+                id: inc_text
+                font.pixelSize: parent.width*0.06
+                color: "lightgreen"//curAngInc != 0 ? "gold" : "lightgreen"
+                text:  "наклон \nантенны"
+                antialiasing: true
+                anchors.right: id_deviation_2.right
+                anchors.rightMargin: width*0.1
+                anchors.top: kren_text.top
+            }
+
+            Text{
+                id: inc_data
+                font.pixelSize: parent.width*0.06
+                color: curAngInc == 20 ? "lightgreen" : "gold"
+                text:  curAngInc
+                antialiasing: true
+                anchors.right: inc_text.right
+                anchors.top: inc_text.bottom
+                anchors.topMargin: height*0.1
+
+            }
+
+            DropShadow {
+                source: kren_data
+                anchors.fill: kren_data
+                color: "silver"
+                opacity: 1
+                radius: 10
+                horizontalOffset: 4
+                verticalOffset: 6
+                samples: 15
+                NumberAnimation on opacity {
+                    easing.amplitude: 8
+                    from: 1
+                    to: 0.8
+                    duration: 1000
+                    loops: Animation.Infinite
+                    running: true
+                    easing.type: Easing.InOutBounce
+                }
+            }
 
         }
 
