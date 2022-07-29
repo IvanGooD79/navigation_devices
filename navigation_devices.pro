@@ -25,6 +25,7 @@ RESOURCES += \
 
 DISTFILES += \
     BankBoard.qml \
+    BankDuoBoard.qml \
     CompasBoard.qml \
     ICO_antena.qml \
     ICO_car_front.qml \

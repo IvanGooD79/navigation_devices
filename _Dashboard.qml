@@ -63,6 +63,16 @@ id: win
         curAng: -5
     }
 
+    BankDuoBoard{
+        id: id_bankduo_obj
+        height: Math.min(parent.width,parent.height)*0.40
+        width: height
+
+        anchors.left: id_pitch_obj.right
+        anchors.top: id_pitch_obj.top
+        anchors.leftMargin: width*0.2
+    }
+
     CompasBoard{
         id: id_compas_obj
         height: Math.min(parent.width,parent.height)*0.40
@@ -116,15 +126,15 @@ id: win
         DragHandler{}
     }
 
-    ICO_antena{
-        id: id_ico_antena_obj
-        height: Math.min(parent.width,parent.height)*0.40
-        width: height
+//    ICO_antena{
+//        id: id_ico_antena_obj
+//        height: Math.min(parent.width,parent.height)*0.40
+//        width: height
 
-        anchors.left: id_ico_side_obj.right
-        anchors.top:  id_ico_side_obj.top
-        DragHandler{}
-    }
+//        anchors.left: id_ico_side_obj.right
+//        anchors.top:  id_ico_side_obj.top
+//        DragHandler{}
+//    }
 
 }
 
