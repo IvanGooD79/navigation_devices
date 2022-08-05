@@ -9,7 +9,8 @@ Item {
         property color colorLight_1: "#ff0080aa"
         property color colorLight_2: "transparent"
         property color colorIcoLight: "#ff00ff00"
-        property int curAng: 0
+        property int curAng_1: 0
+        property int curAng_2: 0
         property var arr:  [-20,-10,0,10,20]
         property bool ico_light: false
 
@@ -170,13 +171,13 @@ Item {
 
             // центральный блок
             Rectangle{
-                id: id_deviation
+                id: id_deviation_1
                 anchors.centerIn: parent
                 height: parent.height*0.85
                 width: height
                 radius: width/2
                 color: "transparent"
-                rotation: curAng*2
+                rotation: curAng_1*2
 
                 // центральный круг
                 Rectangle{
@@ -185,10 +186,29 @@ Item {
                     width:  height
                     radius: width/2
                     color: "black"
-                    border.color: colorLight_1
-                    border.width: width*0.018
+//                    border.color: colorLight_1
+//                    border.width: width*0.018
+                    Canvas {
+                          anchors.fill: parent
+                          onPaint: {
+                              var ctx = getContext("2d");
+                              ctx.reset();
+                              var centreX = width / 2;
+                              var centreY = height / 2;
+                              ctx.beginPath();
+                              ctx.strokeStyle = colorLight_1
+                              ctx.shadowColor = Qt.hsla(0.6, 0.5, 0.5, 1)
+                              ctx.shadowBlur = 3;
+                              ctx.shadowOffsetY = 4;
+
+                              ctx.lineWidth = width*0.02
+                              ctx.beginPath()
+                              ctx.arc(centreX, centreY+height*0.02, height/2, 7*Math.PI/4, 5*Math.PI/4, true);
+                              ctx.stroke()
+                          }
+                    }
                 }
-                // стрелка лево
+                // стрелка вверх
                 Item {
                     height: parent.height/2
                     transformOrigin: Item.Bottom
@@ -202,8 +222,50 @@ Item {
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.top: parent.top
                     }
+                }               
+            }
+
+            // центральный блок
+            Rectangle{
+                id: id_deviation_2
+                anchors.centerIn: parent
+                height: parent.height*0.85
+                width: height
+                radius: width/2
+                color: "transparent"
+                rotation: curAng_2*2
+
+                // центральный круг
+                Rectangle{
+                    anchors.centerIn: parent
+                    height: parent.height*0.7
+                    width:  height
+                    radius: width/2
+                    color: "transparent"
+//                    border.color: colorLight_1
+//                    border.width: width*0.018
+                    Canvas {
+                          anchors.fill: parent
+                          onPaint: {
+                              var ctx = getContext("2d");
+                              ctx.reset();
+                              var centreX = width / 2;
+                              var centreY = height / 2;
+                              ctx.beginPath();
+                              ctx.strokeStyle = colorLight_1
+                              ctx.shadowColor = Qt.hsla(0.6, 0.5, 0.5, 1)
+                              ctx.shadowBlur = 3;
+                              ctx.shadowOffsetY = -4;
+
+                              ctx.lineWidth = width*0.02
+                              ctx.beginPath()
+                              ctx.arc(centreX, centreY-height*0.02, height/2, 3*Math.PI/4, Math.PI/4, true);
+                              ctx.stroke()
+                          }
+                    }
                 }
-                // стрелка право
+
+                // стрелка вниз
                 Item {
                     height: parent.height/2
                     transformOrigin: Item.Bottom
@@ -218,15 +280,15 @@ Item {
                         anchors.top: parent.top
                     }
                 }
+            }
 
-//                ICO_car_front{
-//                    id: id_ico_obj
-//                    anchors.centerIn: id_deviation
-//                    height: id_deviation.height*0.65
-//                    width: height
-//                    flag_light: ico_light
-//                    iColorLight: colorIcoLight
-//                }
+            ICO_chassis{
+                id: id_ico_obj
+                anchors.centerIn: parent
+                height: parent.height*0.70
+                width: height
+                flag_light: ico_light
+                iColorLight: colorIcoLight
             }
 
 //            Text{

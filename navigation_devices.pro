@@ -30,6 +30,7 @@ DISTFILES += \
     ICO_antena.qml \
     ICO_car_front.qml \
     ICO_car_side.qml \
+    ICO_chassis.qml \
     InclinometrBoard.qml \
     PitchBoard.qml
 

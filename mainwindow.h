@@ -23,7 +23,7 @@ private slots:
     void readSocet();
 
 private:
-    QQuickWidget* _quickWidget;
+//    QQuickWidget* _quickWidget;
 
 };
 

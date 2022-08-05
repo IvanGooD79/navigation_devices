@@ -245,7 +245,7 @@ Item {
                 }
 
 
-                // стрелка право
+                // стрелка наклон
                 Item {
                     height: parent.height/2
                     transformOrigin: Item.Bottom
@@ -266,7 +266,7 @@ Item {
             Rectangle{
                 id: id_deviation_2
                 anchors.centerIn: parent
-                height: parent.height*0.80
+                height: parent.height*0.85
                 width: height
                 radius: width/2
                 color: "transparent"
@@ -301,7 +301,7 @@ Item {
                     }
                 }
 
-                // стрелка лево
+                // стрелка крен
                 Item {
                     height: parent.height/2
                     transformOrigin: Item.Bottom

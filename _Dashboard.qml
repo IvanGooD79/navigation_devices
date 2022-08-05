@@ -48,7 +48,7 @@ id: win
         colorIcoLight: curAng != 0 ? "#ffffff00" : "#ff00ffff"
         x: 30
         y: 30
-        curAng: 5
+        curAng: -5
     }
 
     PitchBoard{
@@ -60,14 +60,15 @@ id: win
         anchors.left: id_bank_obj.right
         anchors.top: id_bank_obj.top
         anchors.leftMargin: width*0.2
-        curAng: -5
+        curAng: 5
     }
 
     BankDuoBoard{
         id: id_bankduo_obj
         height: Math.min(parent.width,parent.height)*0.40
         width: height
-
+        curAng_1: 0
+        curAng_2: 0
         anchors.left: id_pitch_obj.right
         anchors.top: id_pitch_obj.top
         anchors.leftMargin: width*0.2
@@ -96,7 +97,7 @@ id: win
         id: id_inc_obj
         height: Math.min(parent.width,parent.height)*0.40
         width: height
-        curAngKren: -5
+        curAngKren: 5
         curAngInc: 20
         anchors.left: id_bank_obj.left
         anchors.top: id_bank_obj.bottom
@@ -123,6 +124,16 @@ id: win
 
         anchors.left: id_ico_front_obj.right
         anchors.top: id_ico_front_obj.top
+        DragHandler{}
+    }
+
+    ICO_chassis{
+        id: id_ico_chssis_obj
+        height: Math.min(parent.width,parent.height)*0.40
+        width: height
+
+        anchors.left: id_ico_side_obj.right
+        anchors.top:  id_ico_side_obj.top
         DragHandler{}
     }
 

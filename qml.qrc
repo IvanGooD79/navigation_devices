@@ -9,5 +9,6 @@
         <file>InclinometrBoard.qml</file>
         <file>ICO_antena.qml</file>
         <file>BankDuoBoard.qml</file>
+        <file>ICO_chassis.qml</file>
     </qresource>
 </RCC>
