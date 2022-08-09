@@ -11,6 +11,9 @@ Item {
         property color colorIcoLight: "#ff00ff00"
         property int curAng_1: 0
         property int curAng_2: 0
+        property int curAng_3: 0
+        property int curAng_4: 0
+
         property var arr:  [-20,-10,0,10,20]
         property bool ico_light: false
 
@@ -225,6 +228,61 @@ Item {
                 }               
             }
 
+            Rectangle{
+                id: id_deviation_11
+                anchors.centerIn: parent
+                height: parent.height*0.85
+                width: height
+                radius: width/2
+                color: "transparent"
+                rotation: curAng_2*2
+
+                // центральный круг
+                Rectangle{
+                    anchors.centerIn: parent
+                    height: parent.height*0.7
+                    width:  height
+                    radius: width/2
+                    color: "transparent"
+//                    border.color: colorLight_1
+//                    border.width: width*0.018
+                    Canvas {
+                          anchors.fill: parent
+                          onPaint: {
+                              var ctx = getContext("2d");
+                              ctx.reset();
+                              var centreX = width / 2;
+                              var centreY = height / 2;
+                              ctx.beginPath();
+                              ctx.strokeStyle = Qt.hsla(0.9, 0.5, 0.5, 1)
+                              ctx.shadowColor = Qt.hsla(0.9, 0.5, 0.5, 1)
+                              ctx.shadowBlur = 3;
+                              ctx.shadowOffsetY = 2;
+
+                              ctx.lineWidth = width*0.02
+                              ctx.beginPath()
+                              ctx.arc(centreX, centreY+height*0.02, height/2, 5*Math.PI/3, 4*Math.PI/3, true);
+                              ctx.stroke()
+                          }
+                    }
+                }
+                // стрелка вверх
+                Item {
+                    height: parent.height/2
+                    transformOrigin: Item.Bottom
+                    rotation: 0
+                    x:parent.width/2
+                    Rectangle{
+                        height: parent.height*0.30
+                        width: height*0.10
+                        color: Qt.hsla(0.9, 0.5, 0.5, 1)
+                        antialiasing: true
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.top: parent.top
+                    }
+                }
+            }
+
             // центральный блок
             Rectangle{
                 id: id_deviation_2
@@ -233,7 +291,7 @@ Item {
                 width: height
                 radius: width/2
                 color: "transparent"
-                rotation: curAng_2*2
+                rotation: -curAng_3*2
 
                 // центральный круг
                 Rectangle{
@@ -282,6 +340,61 @@ Item {
                 }
             }
 
+            Rectangle{
+                id: id_deviation_22
+                anchors.centerIn: parent
+                height: parent.height*0.85
+                width: height
+                radius: width/2
+                color: "transparent"
+                rotation: -curAng_4*2
+
+                // центральный круг
+                Rectangle{
+                    anchors.centerIn: parent
+                    height: parent.height*0.7
+                    width:  height
+                    radius: width/2
+                    color: "transparent"
+//                    border.color: colorLight_1
+//                    border.width: width*0.018
+                    Canvas {
+                          anchors.fill: parent
+                          onPaint: {
+                              var ctx = getContext("2d");
+                              ctx.reset();
+                              var centreX = width / 2;
+                              var centreY = height / 2;
+                              ctx.beginPath();
+                              ctx.strokeStyle = Qt.hsla(0.9, 0.5, 0.5, 1)
+                              ctx.shadowColor = Qt.hsla(0.9, 0.5, 0.5, 1)
+                              ctx.shadowBlur = 3;
+                              ctx.shadowOffsetY = -2;
+
+                              ctx.lineWidth = width*0.02
+                              ctx.beginPath()
+                              ctx.arc(centreX, centreY-height*0.02, height/2, 2*Math.PI/3, Math.PI/3, true);
+                              ctx.stroke()
+                          }
+                    }
+                }
+
+                // стрелка вниз
+                Item {
+                    height: parent.height/2
+                    transformOrigin: Item.Bottom
+                    rotation: 180
+                    x:parent.width/2
+                    Rectangle{
+                        height: parent.height*0.30
+                        width: height*0.10
+                        color: Qt.hsla(0.9, 0.5, 0.5, 1)
+                        antialiasing: true
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.top: parent.top
+                    }
+                }
+            }
             ICO_chassis{
                 id: id_ico_obj
                 anchors.centerIn: parent
@@ -289,18 +402,64 @@ Item {
                 width: height
                 flag_light: ico_light
                 iColorLight: colorIcoLight
+                whl1: curAng_1 != 0 ? 2 : 0
+                whl2: curAng_2 != 0 ? 1 : 0
+                whl3: curAng_3 != 0 ? 2 : 0
+                whl4: curAng_4 != 0 ? 1 : 0
             }
 
-//            Text{
-//                id: bank_text
-//                font.pixelSize: parent.width*0.06
-//                color: curAng != 0 ? "gold" : "lightgreen"
-//                text:  if (curAng > 0) "крен вправо " +curAng; else if (curAng < 0)  "крен влево " +curAng*(-1); else "норма"
-//                antialiasing: true
-//                anchors.horizontalCenter: parent.horizontalCenter
-//                anchors.top: id_deviation.bottom
-//                anchors.topMargin: -height
-//            }
+            Text{
+                id: whl_text_1
+                font.pixelSize: parent.width*0.06
+                color: curAng_1 != 0 ? "gold" : "lightgreen"
+                text:  if (curAng_1 > 0) "ОПЛ \nвправо\n " +curAng_1; else if (curAng_1 < 0)  "ОПЛ \nвлево\n " +curAng_1*(-1); else "ОПЛ \nнорма"
+                antialiasing: true
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top: id_deviation_1.top
+                anchors.topMargin: height
+                anchors.left: id_deviation_1.left
+                anchors.leftMargin: -parent.width*0.10
+            }
+
+            Text{
+                id: whl_text_2
+                font.pixelSize: parent.width*0.06
+                color: curAng_2 != 0 ? "gold" : "lightgreen"
+                text:  if (curAng_2 > 0) "ОПП \nвправо\n " +curAng_2; else if (curAng_2 < 0)  "ОПП \nвлево\n " +curAng_2*(-1); else "ОПП \nнорма"
+                antialiasing: true
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top: id_deviation_1.top
+                anchors.topMargin: height
+                anchors.left: id_deviation_1.right
+                anchors.leftMargin: -parent.width*0.05
+            }
+
+            Text{
+                id: whl_text_3
+                font.pixelSize: parent.width*0.06
+                color: curAng_3 != 0 ? "gold" : "lightgreen"
+                text:  if (curAng_3 > 0) "ОЗЛ \nвправо\n " +curAng_3; else if (curAng_3 < 0)  "ОЗЛ \nвлево\n " +curAng_3*(-1); else "ОЗЛ \nнорма"
+                antialiasing: true
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top: whl_text_1.bottom
+                anchors.topMargin: height
+                anchors.left: whl_text_1.left
+            }
+
+            Text{
+                id: whl_text_4
+                font.pixelSize: parent.width*0.06
+                color: curAng_4 != 0 ? "gold" : "lightgreen"
+                text:  if (curAng_4 > 0) "ОЗП \nвправо\n " +curAng_4; else if (curAng_4 < 0)  "ОЗП \nвлево\n " +curAng_4*(-1); else "ОЗП \nнорма"
+                antialiasing: true
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top: whl_text_2.bottom
+                anchors.topMargin: height
+                anchors.left: whl_text_2.left
+            }
+
+
+
 //            DropShadow {
 //                source: bank_text
 //                anchors.fill: bank_text

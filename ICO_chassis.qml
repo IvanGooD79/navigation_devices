@@ -11,6 +11,11 @@ Item {
     property color iColorLight: "#ff00ff00"
     property bool flag_light: false
 
+    property int whl1: 0
+    property int whl2: 0
+    property int whl3: 0
+    property int whl4: 0
+
     Rectangle{
         id:ico_
         x: 0
@@ -18,6 +23,7 @@ Item {
         width: parent.width
         height: width
         radius: height/2
+
 //        border.width: height*0.01
 //        border.color: "white"
         color: "transparent"
@@ -68,19 +74,26 @@ Item {
 
                         // wheel up
                         ctx.beginPath()
-                        ctx.fillStyle   = "red"
+                        if (whl1 == 0 ) ctx.fillStyle   = "#ff555555"; else if (whl1 == 1)  ctx.fillStyle   = Qt.hsla(0.9, 0.5, 0.5, 1); else ctx.fillStyle   = Qt.hsla(0.6, 0.5, 0.5, 1);
                         ctx.roundedRect(centreX-wid*0.40,Top+hei*0.10, wid*0.15, hei*0.3, wid*0.03,hei*0.03)
+                        ctx.stroke()
                         ctx.fill()
                         ctx.closePath()
                         ctx.beginPath()
-                        ctx.fillStyle   = "yellow"
+                        if (whl2 == 0 ) ctx.fillStyle   = "#ff555555"; else if (whl2 == 1)  ctx.fillStyle   = Qt.hsla(0.9, 0.5, 0.5, 1); else ctx.fillStyle   = Qt.hsla(0.6, 0.5, 0.5, 1);
                         ctx.roundedRect(centreX+wid*0.25,Top+hei*0.10, wid*0.15, hei*0.3, wid*0.03,hei*0.03)
+                        ctx.stroke()
                         ctx.fill()
                         ctx.closePath()
                         // wheel down
                         ctx.beginPath()
-                        ctx.fillStyle   = "#ff555555"
+                        if (whl3 == 0 ) ctx.fillStyle   = "#ff555555"; else if (whl3 == 1)  ctx.fillStyle   = Qt.hsla(0.9, 0.5, 0.5, 1); else ctx.fillStyle   = Qt.hsla(0.6, 0.5, 0.5, 1);
                         ctx.roundedRect(centreX-wid*0.40,Top+hei*0.85, wid*0.15, hei*0.3, wid*0.03,hei*0.03)
+                        ctx.stroke()
+                        ctx.fill()
+                        ctx.closePath()
+                        ctx.beginPath()
+                        if (whl4 == 0 ) ctx.fillStyle   = "#ff555555"; else if (whl4 == 1)  ctx.fillStyle   = Qt.hsla(0.9, 0.5, 0.5, 1); else ctx.fillStyle   = Qt.hsla(0.6, 0.5, 0.5, 1);
                         ctx.roundedRect(centreX+wid*0.25,Top+hei*0.85, wid*0.15, hei*0.3, wid*0.03,hei*0.03)
                         ctx.stroke()
                         ctx.fill()
