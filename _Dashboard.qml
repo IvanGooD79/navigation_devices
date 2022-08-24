@@ -76,6 +76,15 @@ id: win
         anchors.leftMargin: width*0.2
     }
 
+    GraficBoard{
+        id: id_grafic_obj
+        height: parent.height*0.40
+        width: height*2
+        anchors.left: id_bankduo_obj.right
+        anchors.top: id_bankduo_obj.top
+        anchors.leftMargin: width*0.1
+    }
+
     CompasBoard{
         id: id_compas_obj
         height: Math.min(parent.width,parent.height)*0.40
