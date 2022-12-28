@@ -11,5 +11,8 @@
         <file>BankDuoBoard.qml</file>
         <file>ICO_chassis.qml</file>
         <file>GraficBoard.qml</file>
+        <file>CounterBox.qml</file>
+        <file>CounterBoard.qml</file>
+        <file>ICO_counter_box.qml</file>
     </qresource>
 </RCC>

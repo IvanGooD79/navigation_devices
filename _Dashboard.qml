@@ -39,6 +39,14 @@ id: win
 	
     //flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.CustomizeWindowHint
 
+    CounterBox{
+    id: id_counter_box
+    height: Math.min(parent.width,parent.height)*0.40
+    width: height
+    x: parent.width - width - parent.width*0.05
+    y: parent.height - height - parent.height*0.05
+    DragHandler{}
+    }
 
     BankBoard{
         id: id_bank_obj
@@ -103,7 +111,6 @@ id: win
 //               }
     }
 
-
     InclinometrBoard{
         id: id_inc_obj
         height: Math.min(parent.width,parent.height)*0.40
@@ -137,6 +144,16 @@ id: win
         anchors.top: id_ico_front_obj.top
         DragHandler{}
     }
+
+//    ICO_counter_box{
+//        id: id_ico_cb_obj
+//        height: Math.min(parent.width,parent.height)*0.20
+//        width: height
+
+//        anchors.right: id_counter_box.left
+//        anchors.top: id_counter_box.top
+//        DragHandler{}
+//    }
 
 //    ICO_chassis{
 //        id: id_ico_chssis_obj

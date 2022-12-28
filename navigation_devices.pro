@@ -27,11 +27,14 @@ DISTFILES += \
     BankBoard.qml \
     BankDuoBoard.qml \
     CompasBoard.qml \
+    CounterBoard.qml \
+    CounterBox.qml \
     GraficBoard.qml \
     ICO_antena.qml \
     ICO_car_front.qml \
     ICO_car_side.qml \
     ICO_chassis.qml \
+    ICO_counter_box.qml \
     InclinometrBoard.qml \
     PitchBoard.qml
 

@@ -81,9 +81,9 @@ Item {
 
                     line_1.append(pNum,arr_1[pNum]);
                     line_2.append(pNum,arr_2[pNum])
-                    console.log("Count point: "+pNum)
-                    console.log("Size buff_1: "+arr_1.length)
-                    console.log("Size buff_2: "+arr_2.length)
+//                    console.log("Count point: "+pNum)
+//                    console.log("Size buff_1: "+arr_1.length)
+//                    console.log("Size buff_2: "+arr_2.length)
                     pNum++
                 }
             }
